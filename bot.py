@@ -1,15 +1,13 @@
 import time
 import requests
 import telegram
-from configparser import ConfigParser
+from boto.s3.connection import S3Connection
+s3 = S3Connection(os.environ['instagram_key'], os.environ['instagram_account'],os.environ['telegram_token'], os.environ['telegram_chat'])
 
-parser = ConfigParser()
-_ = parser.read('api_keys.cfg')
-
-key = parser.get('instagram', 'key')
-account = parser.get('instagram', 'account')
-token = parser.get('telegram', 'token')
-chat_id = parser.get('telegram', 'chat_id')
+key = s3['instagram_key']
+account = s3['instagram_account']
+token = s3['telegram_token']
+chat_id = s3['telegram_chat']
 
 counter = 0
 taken_at = []
