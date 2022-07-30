@@ -5,10 +5,10 @@ import telegram
 from boto.s3.connection import S3Connection
 s3 = S3Connection(os.environ['instagram_key'], os.environ['instagram_account'],os.environ['telegram_token'], os.environ['telegram_chat'])
 
-key = s3['instagram_key']
-account = s3['instagram_account']
-token = s3['telegram_token']
-chat_id = s3['telegram_chat']
+key = os.environ['instagram_key']
+account = os.environ['instagram_account']
+token = os.environ['telegram_token']
+chat_id = os.environ['telegram_chat']
 
 counter = 0
 taken_at = []
